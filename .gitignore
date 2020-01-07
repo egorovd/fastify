@@ -71,3 +71,5 @@ test/types/index.js
 
 # test tap report
 out.tap
+
+fastify.iml

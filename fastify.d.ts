@@ -357,6 +357,13 @@ declare namespace fastify {
       opts: RouteOptions<HttpServer, HttpRequest, HttpResponse, Query, Params, Headers, Body>,
     ): FastifyInstance<HttpServer, HttpRequest, HttpResponse>
 
+    routeOff<Query = DefaultQuery, Params = DefaultParams, Headers = DefaultHeaders, Body = DefaultBody>(
+      opts: RouteOptions<HttpServer, HttpRequest, HttpResponse, Query, Params, Headers, Body>,
+    ): FastifyInstance<HttpServer, HttpRequest, HttpResponse>
+
+    routeReset<Query = DefaultQuery, Params = DefaultParams, Headers = DefaultHeaders, Body = DefaultBody>():
+      FastifyInstance<HttpServer, HttpRequest, HttpResponse>
+
     /**
      * Defines a GET route with the given mount path, options, and handler
      */

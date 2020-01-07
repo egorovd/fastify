@@ -161,6 +161,17 @@ function build (options) {
       // otherwise we should bind it after the declaration
       return router.route.call(this, opts)
     },
+    routeOff: function _routeOff (opts) {
+      // we need the fastify object that we are producing so we apply a lazy loading of the function,
+      // otherwise we should bind it after the declaration
+      return router.routeOff.call(this, opts)
+    },
+
+    routeReset: function _routeReset () {
+      // we need the fastify object that we are producing so we apply a lazy loading of the function,
+      // otherwise we should bind it after the declaration
+      return router.routeReset.call(this)
+    },
     // expose logger instance
     log: logger,
     // hooks
@@ -346,6 +357,9 @@ function build (options) {
     } else if (name === 'onRoute') {
       this[kHooks].validate(name, fn)
       this[kGlobalHooks].onRoute.push(fn)
+    } else if (name === 'offRoute') {
+      this[kHooks].validate(name, fn)
+      this[kGlobalHooks].offRoute.push(fn)
     } else if (name === 'onRegister') {
       this[kHooks].validate(name, fn)
       this[kGlobalHooks].onRegister.push(fn)
@@ -398,7 +412,7 @@ function build (options) {
 
   // wrapper that we expose to the user for schemas compiler handling
   function setSchemaCompiler (schemaCompiler) {
-    throwIfAlreadyStarted('Cannot call "setSchemaCompiler" when fastify instance is already started!')
+    // throwIfAlreadyStarted('Cannot call "setSchemaCompiler" when fastify instance is already started!')
 
     this[kSchemaCompiler] = schemaCompiler
     return this
