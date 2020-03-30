@@ -127,6 +127,7 @@ function build (options) {
     [kFourOhFour]: fourOhFour,
     [kGlobalHooks]: {
       onRoute: [],
+      offRoute: [],
       onRegister: []
     },
     [pluginUtils.registeredPlugins]: [],
